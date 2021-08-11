@@ -29,12 +29,12 @@ final class ThreadInterruptSimulation {
 
         if (reset)
             while (!Thread.interrupted())
-                Console.writeLine("first loop:%d", i++);
+                Console.writeLine("----first loop:%d", i++);
         else {
             var self = Thread.currentThread();
 
             while (!self.isInterrupted())
-                Console.writeLine("first loop:%d", i++);
+                Console.writeLine("++++first loop:%d", i++);
         }
     }
 
@@ -64,11 +64,11 @@ final class ThreadInterruptSimulation {
 
         t.start();
 
-        ThreadUtil.sleep(random.nextInt(4000) + 1000);
+        ThreadUtil.sleep(random.nextInt(1000) + 1000);
 
         t.interrupt();
 
-        ThreadUtil.sleep(random.nextInt(4000) + 1000);
+        ThreadUtil.sleep(random.nextInt(1000) + 1000);
 
         t.interrupt();
     }
